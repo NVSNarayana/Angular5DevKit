@@ -1,2 +1,4 @@
 Module: @NgModule({imports: [],exports: [],declarations: [],providers: []})
 Component: @Component({selector: 'app-abc',templateUrl: './abc.html',styleUrls: ['./abc.css']})
+@Injectable()export class MetadataService {}
+@Pipe({name: 'pipe-name'})export class MyPipe implements PipeTransform {  transform(value: any, args?: any): any {return value;}}
