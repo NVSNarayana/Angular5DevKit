@@ -1,0 +1,15 @@
+C#6: https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-6
+C#6: Read-only Auto-properties : public string FirstName { get; }
+C#6: Auto-Property Initializers : public ICollection<double> Grades { get; } = new List<double>();
+C#6: Expression-bodied function members : public override string ToString() => $"{LastName}, {FirstName}"; (or) public string FullName => $"{FirstName} {LastName}";
+C#6: using static : using static System.Linq.Enumerable;
+C#6: Null - conditional operators: var first = person?.FirstName;
+C#6: String Interpolation: public string FullName => $"{FirstName} {LastName}";
+C#6: Exception filters : catch (System.Net.Http.HttpRequestException e) when (e.Message.Contains("301")){}
+C#6: nameof Expressions : nameof(LastName)
+C#6: await in catch and finally blocks
+C#6: index initializers: private Dictionary<int, string> webErrors = new Dictionary<int, string>{[404] = "Page not Found",[302] = "Page moved"};
+C#6: Extension methods for collection initializers
+C#6: Improved overload resolution
+C#7: https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-7
+

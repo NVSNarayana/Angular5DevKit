@@ -16,6 +16,7 @@ import { ClassComponent } from './csharp/class/class.component';
 import { GenericsComponent } from './csharp/generics/generics.component';
 import { AngularCliComponent } from './angular/angular-cli/angular-cli.component';
 import { AngularCodeSupportComponent } from './angular/angular-code-support/angular-code-support.component';
+import { CsharpNewFeaturesComponent } from './csharp/csharp-new-features/csharp-new-features.component';
 
 export const routableComponents = [
   HomeComponent,
@@ -30,6 +31,7 @@ export const routableComponents = [
   GenericsComponent,
   AngularCliComponent,
   AngularCodeSupportComponent,
+  CsharpNewFeaturesComponent,
 ];
 
 const routes: Routes = [
@@ -56,6 +58,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'class', pathMatch: 'full' },
       { path: 'class', component: ClassComponent },
       { path: 'generics', component: GenericsComponent },
+      { path: 'newfeatures', component: CsharpNewFeaturesComponent },
     ]
   },
 

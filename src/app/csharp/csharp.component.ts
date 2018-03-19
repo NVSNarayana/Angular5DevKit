@@ -26,6 +26,9 @@ export class CsharpComponent implements OnInit {
       case SubMenuItems.Generics:
         this._router.navigate(["csharp/generics"]);
         break;
+        case SubMenuItems.NewFeatures:
+        this._router.navigate(["csharp/newfeatures"]);
+        break;
     }
   }
   setActiveSubMenu() {
@@ -40,11 +43,15 @@ export class CsharpComponent implements OnInit {
       case "/csharp/generics":
         this.selectedSubMenuItem = SubMenuItems.Generics;
         break;
+        case "/csharp/newfeatures":
+        this.selectedSubMenuItem = SubMenuItems.NewFeatures;
+        break;
     }
   }
 }
 enum SubMenuItems {
   Class = "Class",
   Generics = "Generics",
+  NewFeatures = "New Features"
 }
 
