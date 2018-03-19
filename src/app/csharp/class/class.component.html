@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <div class="input-group">
+          <span class="input-group-addon">Name:</span>
+          <input class="form-control" [(ngModel)]="name">
+        </div>
+      </div>
+      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <button class="btn btn-primary btn-md" (click)="addClassMember();">Add Class Member</button>
+        <button class="btn btn-primary btn-md" style="margin-left:10px;" (click)="deleteAllClassMembers();">Delete All Class Members</button>
+        <button class="btn btn-primary btn-md" style="margin-left:10px;" (click)="showMaualEntry();">{{toggleManualEntryText}}</button>
+      </div>
+    </div>
+    <div class="row" style="margin-top:15px;" *ngIf="hasManualEntry">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>Type (Space) Property Name:</label>
+          <textarea class="form-control" [(ngModel)]="typeSpaceProperty" style="min-height:100px;"></textarea>
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>Type (Space) Method Name:</label>
+          <textarea class="form-control" [(ngModel)]="typeSpaceMethod" style="min-height:100px;"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-top:15px;">
+      <div class="col-md-4 col-sm-4" *ngFor="let m of members; index as i">
+        <div class="form-group">
+          <label>
+            <div class="input-group">
+              <span class="input-group-addon">Member Type:</span>
+              <select [(ngModel)]="m.selectedType">
+                <option *ngFor="let type of types" [ngValue]="type">{{type}}</option>
+              </select>
+              <button class="btn btn-primary btn-sm" style="margin-left:10px" (click)="deleteClassMember(i);">Delete</button>
+            </div>
+          </label>
+          <textarea class="form-control" [(ngModel)]="m.properties" style="min-height:100px;"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:5px;">
+      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <button class="btn btn-primary btn-sm" (click)="generate();">Generate</button>
+      </div>
+    </div>
+    <div class="row" style="margin-top:5px;margin-bottom:30px;">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+          <label>C# Class:</label>
+          <textarea class="form-control" [(ngModel)]="csharpClass" style="min-height:100px;"></textarea>
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="form-group">
+            <label>Type Script Class:</label>
+            <textarea class="form-control" [(ngModel)]="typeScriptClass" style="min-height:100px;"></textarea>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

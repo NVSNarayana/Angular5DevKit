@@ -1,0 +1,2 @@
+Module: @NgModule({imports: [],exports: [],declarations: [],providers: []})
+Component: @Component({selector: 'app-abc',templateUrl: './abc.html',styleUrls: ['./abc.css']})

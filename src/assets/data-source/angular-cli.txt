@@ -1,0 +1,48 @@
+Install: npm i -g @angular/cli
+Version: ng -v
+Help: ng --help
+Help: ng --help|clip
+Help: ng --help>abc.txt
+New Project: ng new PROJECT-NAME
+Open VSCode: code .
+Run App: ng serve
+Run App: ng serve --port 4201
+Run App: ng serve --open (runs in default browser)
+Run build when files change: ng serve --watch=false
+Whether to reload the page on change: ng serve --live-reload=false
+Generate dev build without source map(helps us easily debug): ng build --dev -sm false 
+Generate prod build with source map: ng build --prod -sm true 
+Generate dev build with global styles extracted to .css file(s) instead of .js: ng build --dev -ec true
+Run all unit tests: ng test
+Run all end to end tests: ng e2e
+Run Lint: ng lint (checks programatic, stylistic errors, coding standards and conventions)
+Component: ng g component new-component (must register in declarations)
+Component: ng g component new-module/new-component
+Component with style option: ng g c new-component --style=less
+Component without a folder: ng g c new-component --flat
+Component without spec file: ng g c new-component --spec=false
+Component dryrun, inline html template, inline style and without spec file : ng g c new-component -d -it -is --spec=false
+Component register in different module with dryrun: ng g c new-component -d -m=app-routing
+Directive: ng g directive new-directive (must register in declarations)
+Pipe: ng g pipe new-pipe (must register in declarations)
+Service: ng g service new-service (must register in providers)
+Class: ng g class new-class
+Guard: ng g guard new-guard (must register in providers)
+Interface: ng g interface new-interface
+Enum: ng g enum new-enum
+Module: ng g module new-module (must register in imports)
+Generate new module and register in app.modle: ng g m new-module -m=app.module
+--dry-run (or) -d: Reporting files without making any changes
+--skip-install (or) -si: Skip installing packages
+--skip-tests (or) -st: Skip creating tests
+--inline-style (or) -is: Use inline styles when generating the new application
+--inline-template (or) -it: Use inline templates when generating the new application
+--flat: Generate a file without a folder
+--spec=false: Generate files without .spec file
+--fix: fix linting errors
+--type-check: controls the type check for linting
+JIT (Just-in-Time) compilation: Compiles the application in the browser at run Time
+JIT Compilation Example: ng build, ng serve
+AOT (Ahead-of-Time) compilation: Compiles the application at build time
+AOT Compilation Example: ng build --aot, ng serve --aot
+Turn off AOT for production build: ng build --prod --aot false

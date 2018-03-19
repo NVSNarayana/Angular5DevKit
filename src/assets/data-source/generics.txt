@@ -1,0 +1,50 @@
+Dictionary<string, string> dic = Enumerable.Range(1, 10).ToDictionary(k => "Key:" + k, v => "Value:" + v.ToString());
+List<EmployeeModel> lst = Enumerable.Range(1, 10).Select(v => new EmployeeModel() { Eno = v, Ename = "E" + v, Age = 20 + v }).ToList();
+List<EmployeeModel> lstWhere = lst.Where(v => v.Eno == 9).ToList();
+List<string> lstStr = mixedList.OfType<string>().ToList();
+List<EmployeeModel> lstAscOrder = lst.OrderBy(v => v.Ename).ToList();
+List<EmployeeModel> lstDescOrder = lst.OrderByDescending(v => v.Ename).ToList();
+List<EmployeeModel> lstThenByAsc = lst.OrderBy(v => v.Ename).ThenBy(v => v.Age).ToList();
+List<EmployeeModel> lstThenByDesc = lst.OrderBy(v => v.Ename).ThenByDescending(v => v.Age).ToList();
+Dictionary<string,List<EmployeeModel>> dicGroupBy = lst.GroupBy(v => v.Ename).ToDictionary(s=>s.Key, e=>e.ToList());
+Dictionary<string, List<EmployeeModel>> dicLookup = lst.ToLookup(v => v.Ename).ToDictionary(s => s.Key, e => e.ToList());
+var lstJoin = lst.Join(lstAddress, e => e.Eno, a => a.Eno, (emp, addr) => new { Eno = emp.Eno, Ename = emp.Ename, Age = emp.Age, Address = addr.Address });
+var lstGroupJoin = lstAddress.GroupJoin(lst, a => a.Eno, e => e.Eno, (addr, empList) => new { EmpList = empList, Eno = addr.Eno, Address = addr.Address });
+bool isAll = lst.All(v => v.Age < 55);
+bool isAny = lst.Any(v => v.Age < 35);
+bool isContains = lst.Contains(new EmployeeModel() { Eno = 1, Ename = "E1", Age = 21 });//always false. It compares references not value
+bool isContainsWithComparer = lst.Contains(new EmployeeModel() { Eno = 1, Ename = "E1", Age = 21 }, new EmployeeComparer());//class EmployeeComparer : IEqualityComparer<EmployeeModel>
+string aggreateStr = lst.Select(v => v.Ename).Aggregate((name1, name2) => $"{name1}, {name2}");
+string aggreateStrWithSeed = lst.Aggregate<EmployeeModel, string>("All emp names: ", (str, emp) => str += emp.Ename + ",");
+string aggreateStrWithSeedAndResultSelector = lst.Aggregate<EmployeeModel, string, string>("All emp names: ", (str, emp) => str += emp.Ename + ",", (str) => str.Substring(0, str.Length - 1));
+int sum = lst.Sum(v => v.Age);
+double avg = lst.Average(v => v.Age);
+int min = lst.Min(v => v.Age);
+int max = lst.Max(v => v.Age);
+int count = lst.Count(v => v.Age > 40);
+EmployeeModel empElementAt = lst.ElementAt(2);
+EmployeeModel empElementAtOrDefault = lst.ElementAtOrDefault(2);
+EmployeeModel empFirst = lst.First(v => v.Age > 20);
+EmployeeModel empFirstOrDefault = lst.FirstOrDefault(v => v.Age > 20);
+EmployeeModel empLast = lst.Last(v => v.Age > 20);
+EmployeeModel empLastOrDefault = lst.LastOrDefault(v => v.Age > 20);
+EmployeeModel empSingle = lst.Single(v => v.Eno == 20);
+EmployeeModel empSingleOrDefault = lst.SingleOrDefault(v => v.Eno == 20);
+bool isSequenceEqual = strList1.SequenceEqual(strList2);
+bool is2EmpListsEqual = lst1Emps.SequenceEqual(lst2Emps, new EmployeeComparer());//class EmployeeComparer : IEqualityComparer<EmployeeModel>
+List<EmployeeModel> lstConcat = lst1Emps.Concat(lst2Emps).ToList();
+var lstDefaultEmpty = lst.DefaultIfEmpty(new EmployeeModel()).ToList();//when list is empty adds one default value
+List<EmployeeModel> emptyEmpList = Enumerable.Empty<EmployeeModel>().ToList();//Object created with 0 count
+List<EmployeeModel> repeatEmpList = Enumerable.Repeat<EmployeeModel>(new EmployeeModel { Eno = 1, Ename = "abc", Age = 20 }, 5).ToList();
+List<string> distinctStrings = lstStr.Distinct().ToList();
+List<EmployeeModel> distinctEmpList = lst.Distinct(new EmployeeComparer()).ToList();//class EmployeeComparer : IEqualityComparer<EmployeeModel>
+List<string> exceptStrList = lstStr.Except(lstStr1).ToList();
+List<EmployeeModel> exceptEmpList = lst1Emps.Except(lst2Emps, new EmployeeComparer()).ToList();//class EmployeeComparer : IEqualityComparer<EmployeeModel>
+List<string> intersectStrList = lstStr.Intersect(lstStr1).ToList();
+List<EmployeeModel> intersectEmpList = lst1Emps.Intersect(lst2Emps, new EmployeeComparer()).ToList();//class EmployeeComparer : IEqualityComparer<EmployeeModel>
+List<string> unionStrList = lstStr.Union(lstStr1).ToList();
+List<EmployeeModel> unionEmpList = lst1Emps.Union(lst2Emps, new EmployeeComparer()).ToList();//class EmployeeComparer : IEqualityComparer<EmployeeModel>
+List<EmployeeModel> skipEmpList = lst1Emps.Skip(2).ToList();
+List<EmployeeModel> skipWhileEmpList = lst1Emps.SkipWhile(v => v.Age > 60).ToList();//Skips elements based on a condition until an element does not satisfy the condition
+List<EmployeeModel> takeEmpList = lst1Emps.Take(2).ToList();
+List<EmployeeModel> takeWhileEmpList = lst1Emps.TakeWhile(v => v.Age > 30).ToList();//	Returns elements from the given collection until the specified condition is true

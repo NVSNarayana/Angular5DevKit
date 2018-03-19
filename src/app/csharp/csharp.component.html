@@ -1,0 +1,17 @@
+<div class="row" style="margin-top:2px;">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <nav class="navbar navbar-expand-sm navbar-dark" style="padding-left:0px;">
+      <ul class="navbar-nav">
+        <li class="nav-item" *ngFor="let s of subMenuItems; let i = index">
+          <button [class.submenu-active]="selectedSubMenuItem==s.value" style="border-radius:0px;" type="button" class="btn btn-default"
+            (click)="slide_Click(s.value)">{{s.value}}</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<div class="row" style="margin-top:15px;min-height: 50vh;">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <div class="row">
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <div class="form-group">
+          <label>Json Keys:</label>
+          <textarea class="form-control" [(ngModel)]="jsonKeys" style="min-height:200px;"></textarea>
+        </div>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <div class="form-group">
+          <label>Random Key:[Array]/From-To:</label>
+          <textarea class="form-control" [(ngModel)]="randomKeys" style="min-height:200px;"></textarea>
+        </div>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <div class="form-group">
+          <label>Increment Key:From:</label>
+          <textarea class="form-control" [(ngModel)]="incrementKeys" style="min-height:200px;"></textarea>
+        </div>
+      </div>
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <div class="form-group">
+          <label>Key:Increment Suffix</label>
+          <textarea class="form-control" [(ngModel)]="incrementSuffixKeys" style="min-height:200px;"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-top:5px;">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <div class="input-group">
+          <span class="input-group-addon">Array Size:</span>
+          <input type="number" class="form-control" [(ngModel)]="arraySize" style="max-width:100px;">
+        </div>
+      </div>
+      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <button class="btn btn-primary btn-sm" (click)="generate();">Generate</button>
+      </div>
+    </div>
+    <div class="row" style="margin-top:5px;">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="form-group">
+          <label>Response:</label>
+          <textarea class="form-control" [(ngModel)]="response" style="min-height:100px;"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
