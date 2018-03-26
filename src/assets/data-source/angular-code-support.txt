@@ -3,3 +3,4 @@ Component: @Component({selector: 'app-abc',templateUrl: './abc.html',styleUrls: 
 Service: @Injectable()export class MyService {}
 Pipe: @Pipe({name: 'pipe-name'})export class MyPipe implements PipeTransform {  transform(value: any, args?: any): any {return value;}}
 const: export const Constants = {Producer: "Producer",Consumer: "Consumer"}
+@Directive({selector: '[appMyAttr]'})export class MyAttrDirective {constructor(private el: ElementRef) {el.nativeElement.style.backgroundColor = this.highlightColor;}}
